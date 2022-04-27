@@ -48,13 +48,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   // Swiper gallery
   const slider = new Swiper('.gallery__swiper', {
-
-    spaceBetween: 50,
-  
-
-
-
+   
     loop: true,
+    slidePerView: 3,
+    spaceBetween: 50,
+    slidesPerGroup: 3,
+    loop: true,
+    loopFillGroupWithBlank: true,
   });
   // Accord
   $(function () {
@@ -65,7 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
       active: false
     });
   })
+  // swiper doing
 
+  const swiper3 = new Swiper('.doing__swiper', {
+    loop: true,
+    spaceBetween: 50,
+    slidesPerGroup: 3,
+    
+
+  });
 
 
 })

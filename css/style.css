@@ -438,9 +438,9 @@ input::-webkit-input-placeholder {
     word-break: unset;
 }
 
-#choices--custom-select-item-choice-1 {
+/* #choices--custom-select-item-choice-1 {
     display: none;
-}
+} */
 
 .choices__item.choices__item--selectable::after {
     display: none;
@@ -597,6 +597,10 @@ label {
 }
 
 /* Cataloge */
+.cataloge__left-content {
+    margin-right: 100px;
+}
+
 .cataloge__title {
     font-weight: 400;
     font-size: 48px;
@@ -614,12 +618,10 @@ label {
     margin-bottom: 40px;
 }
 
-.cataloge__left-content {
-    margin-right: 100px;
-}
+
 
 .cataloge__left-img {
-    width: 750px;
+    max-width: 750px;
 }
 
 .cataloge__left-content-title {
@@ -647,6 +649,16 @@ label {
     color: var(--grey);
 }
 
+.accord-item {
+    padding: 18px 0;
+    border-bottom: 1px solid #cacaca;
+}
+
+.accord__list:first-child {
+    border-top: 1px solid #cacaca;
+
+}
+
 .accord__title {
     font-weight: 600;
     font-size: 24px;
@@ -657,10 +669,12 @@ label {
 
 .accord__content-list {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 32px;
     color: var(--dark-grey);
     margin-right: 60px;
+    margin-top: 25px;
+    margin-bottom: 4px;
 }
 
 .accord__block-img {
@@ -723,4 +737,53 @@ label {
 
 .accord__item-inner.ui-state-active .accord__icon {
     transform: rotate(180deg);
+}
+
+/* Doing */
+.doing__title {
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 65px;
+    color: var(--dark-grey);
+}
+.doing__swiper-wrapper {
+    align-items: center;
+}
+.doing__swiper-slide {
+    background: #FFFFFF;
+    border: 1px solid #CACACA;
+}
+.doing__slide-block {
+
+    width: 500px;
+    padding:13px 50px;
+}
+
+.doing__slide-block-span {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--grey);
+}
+
+.doing__slide-block-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+    color: var(--dark-grey);
+}
+
+.doing__slide-block-descr {
+    width: 400px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    color: var(--dark-grey);
+}
+
+.doing__slide-block-link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    color: var(--purple);
 }
