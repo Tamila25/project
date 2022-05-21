@@ -5,32 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-
     <!-- Simple bar -->
     <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
-
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
     <!-- Choices -->
     <link rel="stylesheet" href="css/choices.min.css">
-
     <!-- Accordion -->
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Map -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript">
+    </script>
     <!-- My style -->
- <link rel="stylesheet" href="css/normalize.css">
- <link rel="stylesheet" href="css/style.css">
-
-
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Blanchard</title>
 </head>
 
@@ -41,11 +34,10 @@
             <div class="header__top flex">
                 <!-- Logo -->
                 <div class="header__logo">
-                    <a class="header__logo" href="#">
+                    <a class="header__logo">
                         <img src="img/Лого.svg" alt="logo">
                     </a>
                 </div>
-
                 <!-- Menu -->
                 <nav class="header__nav">
                     <ul class="header__nav-list list-reset flex">
@@ -63,7 +55,6 @@
                                 class="header__nav-list-item-link">Контакты</a></li>
                     </ul>
                 </nav>
-
                 <div class="header__link-enter">
                     <a href="">Войти</a>
                 </div>
@@ -71,8 +62,11 @@
             <div class="header__bottom flex ">
                 <ul class="header__bottom-list list-reset flex ">
                     <li class="header__bottom-list-item">
-                        <button class="header__bottom-list-btn ">Реализм</button>
-                        <div class="header__bottom-list-dropdown dropdown   " data-simplebar>
+                        <button class="header__bottom-list-btn js-header-dropdown-btn " data-path="one">
+                            <strong class="header__item-heading">Реализм</strong>
+                            <span class="header__item-icon"></span> </button>
+                        <div class="header__bottom-list-dropdown dropdown   " data-target="one">
+                           <div class="dropdown-wrap" data-simplebar >
                             <ul class="header__bottom-dropdown-list list-reset">
                                 <li class="header__bottom-dropdown-item"
                                     style="background-image: url('/img/realizm1.jpg');"><a
@@ -86,13 +80,16 @@
                                 <li class="header__bottom-dropdown-item"
                                     style="background-image: url('/img/realizm4.jpg');"><a
                                         class="header__bottom-dropdown-link" href="#">Верроккьо</a></li>
-
                             </ul>
+                           </div>
                         </div>
                     </li>
                     <li class="header__bottom-list-item">
-                        <button class="header__bottom-list-btn">Импрессионизм</button>
-                        <div class="header__bottom-list-dropdown dropdown" data-simplebar>
+                        <button class="header__bottom-list-btn js-header-dropdown-btn" data-path="two" >
+                            <strong class="header__item-heading">Импрессионизм</strong>
+                            <span class="header__item-icon"></span> </button>
+                        <div class="header__bottom-list-dropdown dropdown" data-target="two">
+                           <div class="dropdown-wrap" data-simplebar >
                             <ul class="header__bottom-dropdown-list list-reset">
                                 <li class="header__bottom-dropdown-item"
                                     style="background-image: url('/img/impres1.jpg');"><a
@@ -106,33 +103,39 @@
                                 <li class="header__bottom-dropdown-item"
                                     style="background-image: url('/img/impres4.jpg');"><a
                                         class="header__bottom-dropdown-link" href="#">Ренуар</a></li>
-
                             </ul>
+                           </div>
                         </div>
                     </li>
                     <li class="header__bottom-list-item">
-                        <button class="header__bottom-list-btn">Постимпрессионизм</button>
-                        <div class="header__bottom-list-dropdown dropdown" data-simplebar>
-                            <ul class="header__bottom-dropdown-list list-reset">
-                                <li class="header__bottom-dropdown-item"
-                                    style="background-image: url('/img/posts1.jpg');"><a
-                                        class="header__bottom-dropdown-link" href="#">Ван Гог</a></li>
-                                <li class="header__bottom-dropdown-item"
-                                    style="background-image: url('/img/posts2.jpg');"><a
-                                        class="header__bottom-dropdown-link" href="#">Сезанн</a></li>
-                                <li class="header__bottom-dropdown-item"
-                                    style="background-image: url('/img/posts3.jpg');"><a
-                                        class="header__bottom-dropdown-link" href="#">Гоген</a></li>
-                                <li class="header__bottom-dropdown-item"
-                                    style="background-image: url('/img/posts4.jpg');"><a
-                                        class="header__bottom-dropdown-link" href="#">Сёра</a></li>
-
-                            </ul>
+                        <button class="header__bottom-list-btn js-header-dropdown-btn" data-path="three" >
+                            <strong class="header__item-heading">Постимпрессионизм</strong>
+                            <span class="header__item-icon"></span> </button>
+                        <div class="header__bottom-list-dropdown dropdown" data-target="three">
+                            <div class="dropdown-wrap" data-simplebar>
+                                <ul class="header__bottom-dropdown-list list-reset">
+                                    <li class="header__bottom-dropdown-item"
+                                        style="background-image: url('/img/posts1.jpg');"><a
+                                            class="header__bottom-dropdown-link" href="#">Ван Гог</a></li>
+                                    <li class="header__bottom-dropdown-item"
+                                        style="background-image: url('/img/posts2.jpg');"><a
+                                            class="header__bottom-dropdown-link" href="#">Сезанн</a></li>
+                                    <li class="header__bottom-dropdown-item"
+                                        style="background-image: url('/img/posts3.jpg');"><a
+                                            class="header__bottom-dropdown-link" href="#">Гоген</a></li>
+                                    <li class="header__bottom-dropdown-item"
+                                        style="background-image: url('/img/posts4.jpg');"><a
+                                            class="header__bottom-dropdown-link" href="#">Сёра</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
                     <li class="header__bottom-list-item">
-                        <button class="header__bottom-list-btn">Авангард</button>
-                        <div class="header__bottom-list-dropdown dropdown" data-simplebar>
+                        <button class="header__bottom-list-btn js-header-dropdown-btn" data-path="four" >
+                            <strong class="header__item-heading">Авангард</strong>
+                            <span class="header__item-icon"></span> </button>
+                        <div class="header__bottom-list-dropdown dropdown" data-target="four">
+                           <div class="dropdown-wrap" data-simplebar>
                             <ul class="header__bottom-dropdown-list list-reset">
                                 <li class="header__bottom-dropdown-item"
                                     style="background-image: url('/img/avan1.jpg');"><a
@@ -146,37 +149,41 @@
                                 <li class="header__bottom-dropdown-item"
                                     style="background-image: url('/img/avan4.jpg');"><a
                                         class="header__bottom-dropdown-link" href="#">Пикассо</a></li>
-
                             </ul>
+                           </div>
                         </div>
                     </li>
                     <li class="header__bottom-list-item">
-                        <button class="header__bottom-list-btn">Футуризм</button>
-                        <div class="header__bottom-list-dropdown dropdown " data-simplebar>
-                            <ul class="header__bottom-dropdown-list list-reset">
-                                <li class="header__bottom-dropdown-item"
-                                    style="background-image: url('/img/futur1.jpg');"><a
-                                        class="header__bottom-dropdown-link" href="#">Карра</a></li>
-                                <li class="header__bottom-dropdown-item"
-                                    style="background-image: url('/img/futur2.jpg');"><a
-                                        class="header__bottom-dropdown-link" href="#">Прателла</a></li>
-                                <li class="header__bottom-dropdown-item"
-                                    style="background-image: url('/img/futur3.jpg');"><a
-                                        class="header__bottom-dropdown-link" href="#">Северини</a></li>
-                                <li class="header__bottom-dropdown-item"
-                                    style="background-image: url('/img/futur4.jpg');"><a
-                                        class="header__bottom-dropdown-link" href="#">Балла</a></li>
-
-                            </ul>
+                        <button class="header__bottom-list-btn js-header-dropdown-btn" data-path="five" >
+                            <strong class="header__item-heading">Футуризм</strong>
+                            <span class="header__item-icon"></span> </button>
+                        <div class="header__bottom-list-dropdown dropdown " data-target="five">
+                            <div class="dropdown-wrap" data-simplebar>
+                                <ul class="header__bottom-dropdown-list list-reset">
+                                    <li class="header__bottom-dropdown-item"
+                                        style="background-image: url('/img/futur1.jpg');"><a
+                                            class="header__bottom-dropdown-link" href="#">Карра</a></li>
+                                    <li class="header__bottom-dropdown-item"
+                                        style="background-image: url('/img/futur2.jpg');"><a
+                                            class="header__bottom-dropdown-link" href="#">Прателла</a></li>
+                                    <li class="header__bottom-dropdown-item"
+                                        style="background-image: url('/img/futur3.jpg');"><a
+                                            class="header__bottom-dropdown-link" href="#">Северини</a></li>
+                                    <li class="header__bottom-dropdown-item"
+                                        style="background-image: url('/img/futur4.jpg');"><a
+                                            class="header__bottom-dropdown-link" href="#">Балла</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
                 </ul>
                 <form action="https://jsonplaceholder.typicode.com/posts" autocomplete="on" method="POST"
                     class="header__form">
+                    <button type="submit" class="btn-search"></button>
                     <input class="header__search" type="search" name="search" placeholder="Поиск по сайту">
+
                 </form>
             </div>
-
         </div>
     </header>
     <!-- Main -->
@@ -184,30 +191,28 @@
         <!-- Hero -->
         <section class="section hero">
             <div class="hero__container">
-
                 <!-- Slider main container -->
-                <div class="swiper">
+                <div class="hero__swiper swiper">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
+                    <div class="hero__swiper-wrapper swiper-wrapper">
                         <!-- Slides -->
-                        <div class="swiper-slide"><img src="img/hero1.jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="img/hero2.jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="img/hero3.jpg" alt=""></div>
-
+                        <div class="hero__swiper-slide swiper-slide" style="background-image: url('.//img/hero1.jpg');">
+                        </div>
+                        <div class="hero__swiper-slide swiper-slide" style="background-image: url('.//img/hero2.jpg');">
+                        </div>
+                        <div class="hero__swiper-slide swiper-slide" style="background-image: url('.//img/hero3.jpg');">
+                        </div>
                     </div>
-
                 </div>
                 <div class="hero__content">
                     <h1 class="hero__title">Прикоснитесь к&nbsp;прекрасному</h1>
                     <p class="hero__descr">Мы&nbsp;вынуждены отталкиваться от&nbsp;того, что реализация намеченных
-                        плановых заданий создаёт предпосылки для новых предложений.</p>
-                    <button class="hero__btn btn">
+                        плановых заданий создаёт предпосылки для новых предложений.
+                    </p>
+                    <a class="hero__btn btn">
                         Подписаться на&nbsp;рассылку
-                    </button>
+                    </a>
                 </div>
-
-
-
             </div>
         </section>
         <!-- About -->
@@ -222,70 +227,97 @@
                     позиционных исследований создаёт необходимость включения в&nbsp;производственный план целого ряда
                     внеочередных мероприятий с&nbsp;учётом комплекса распределения внутренних резервов и&nbsp;ресурсов.
                     В&nbsp;рамках спецификации современных стандартов, действия представителей оппозиции набирают
-                    популярность среди определенных слоев населения, а&nbsp;значит, должны быть разоблачены.</p>
+                    популярность среди определенных слоев населения, а&nbsp;значит, должны быть разоблачены.
+                </p>
             </div>
         </section>
         <!-- Gallery -->
         <section id="gallery" class="section gallery">
             <div class="gallery__container container flex">
-
                 <div class="gallery__filter ">
                     <h2 class="gallery__title section-title">Галерея</h2>
                     <h4 class="gallery__filter-title">Фильтр:</h4>
-
-
                     <select class="gallery__select select" id="custom-select">
                         <option data-value="Живопись">Живопись</option>
                         <option>Рисунок</option>
                         <option>Скульптура</option>
                     </select>
-
-
-
-
                     <form action="" class="gallery__form item">
                         <label>
                             <input type="checkbox" name="check" class="input-checked"> XIX век
                             <span class="input-span">
-
                             </span>
                         </label>
                         <label>
                             <input type="checkbox" name="check" class="input-checked"> XX век
                             <span class="input-span">
-
                             </span>
                         </label>
                         <label>
                             <input type="checkbox" name="check" class="input-checked"> Современность
                             <span class="input-span">
-
                             </span>
                         </label>
-
                     </form>
-
                 </div>
+                <div class="gallery__slider">
+                    
+                    <div class="gallery__pagination  flex">
+                        <button class="nav-btn prev" aria-label="К предыдущему слайду"></button>
+                        <div class="pagination"></div>
+                        <button class="nav-btn next" aria-label="К следующему слайду"></button>
 
-                <div class="gallery__swiper swiper " id="swiper">
-                    <div class="gallery__swiper-wrapper swiper-wrapper flex">
-                        <div class="gallery__swiper-slide swiper-slide">
-                            <img src="img/galery1.jpg" alt="">
-                        </div>
-                        <div class="gallery__swiper-slide  swiper-slide">
-                            <img src="img/galery2.jpg" alt="">
-                        </div>
-                        <div class="gallery__swiper-slide swiper-slide">
-                            <img src="img/galery3.jpg" alt="">
-                        </div>
-                        <div class="gallery__swiper-slide swiper-slide">
-                            <img src="img/galery4.jpg" alt="">
-                        </div>
-                        <div class="gallery__swiper-slide swiper-slide">
-                            <img src="img/galery5.jpg" alt="">
-                        </div>
-                        <div class="gallery__swiper-slide swiper-slide">
-                            <img src="img/galery6.jpg" alt="">
+                    </div>
+                    <div class="gallery__swiper swiper " id="swiper">
+                        <div class="gallery__swiper-wrapper swiper-wrapper flex">
+                            <a href="#" class="swiper-slide gallery__swiper-slide">
+                                <picture>
+<source srcset="img/galery320-1.jpg" media="(max-width:580px)">
+<source srcset="img/galery768-1.jpg" media="(max-width:960px)">
+<source srcset="img/galery1024-1.jpg" media="(max-width:1360px)">
+<img src="img/galery1.jpg" alt="">
+                                </picture>
+                            </a>
+                            <a href="#" class="swiper-slide gallery__swiper-slide">
+                                <picture>
+<source srcset="img/galery320-2.jpg" media="(max-width:580px)">
+<source srcset="img/galery768-2.jpg" media="(max-width:960px)">
+<source srcset="img/galery1024-2.jpg" media="(max-width:1360px)">
+<img src="img/galery2.jpg" alt="">
+                                </picture>
+                            </a>
+                            <a href="#" class="swiper-slide gallery__swiper-slide">
+                                <picture>
+<source srcset="img/galery320-3.jpg" media="(max-width:580px)">
+<source srcset="img/galery768-3.jpg" media="(max-width:960px)">
+<source srcset="img/galery1024-3.jpg" media="(max-width:1360px)">
+<img src="img/galery3.jpg" alt="">
+                                </picture>
+                            </a>
+                            <a href="#" class="swiper-slide gallery__swiper-slide">
+                                <picture>
+<source srcset="img/galery320-4.jpg" media="(max-width:580px)">
+<source srcset="img/galery768-4.jpg" media="(max-width:960px)">
+<source srcset="img/galery1024-4.jpg" media="(max-width:1360px)">
+<img src="img/galery4.jpg" alt="">
+                                </picture>
+                            </a>
+                            <a href="#" class="swiper-slide gallery__swiper-slide">
+                                <picture>
+<source srcset="img/galery320-5.jpg" media="(max-width:580px)">
+<source srcset="img/galery768-5.jpg" media="(max-width:960px)">
+<source srcset="img/galery1024-5.jpg" media="(max-width:1360px)">
+<img src="img/galery5.jpg" alt="">
+                                </picture>
+                            </a>
+                            <a href="#" class="swiper-slide gallery__swiper-slide">
+                                <picture>
+<source srcset="img/galery320-6.jpg" media="(max-width:580px)">
+<source srcset="img/galery768-6.jpg" media="(max-width:960px)">
+<source srcset="img/galery1024-6.jpg" media="(max-width:1360px)">
+<img src="img/galery6.jpg" alt="">
+                                </picture>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -299,14 +331,13 @@
                     континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие
                     нормы этики и&nbsp;морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить
                     традиционное производство, нанотехнологии и&nbsp;по&nbsp;сей день остаются уделом либералов, которые
-                    жаждут быть функционально разнесены на&nbsp;независимые элементы.</p>
-
+                    жаждут быть функционально разнесены на&nbsp;независимые элементы.
+                </p>
                 <div class="cataloge__list flex">
                     <div class="cataloge__list-left">
                         <img src="img/domenic.jpg" alt="" class="cataloge__left-img">
                         <div class="cataloge__left-content">
                             <h3 class="cataloge__left-content-title">Доменико Гирландайо</h3>
-                         
                             <p class="cataloge__left-content-descr">
                                 <span class="descr-span">2&nbsp;июня 1448&nbsp;&mdash; 11&nbsp;января 1494.</span>
                                 Один из&nbsp;ведущих флорентийских художников Кватроченто, основатель художественной
@@ -316,10 +347,10 @@
                                 Автор фресковых циклов, в&nbsp;которых выпукло, со&nbsp;всевозможными подробностями
                                 показана
                                 домашняя жизнь библейских персонажей (в&nbsp;их&nbsp;роли выступают знатные граждане
-                                Флоренции в&nbsp;костюмах того времени).</p>
+                                Флоренции в&nbsp;костюмах того времени).
+                            </p>
                         </div>
                     </div>
-
                     <div class="cataloge__accord">
                         <ul class="accord__list list-reset" id="accordion">
                             <li class="accord-item">
@@ -328,37 +359,42 @@
                                     <span class="accord__icon"></span>
                                 </div>
                                 <ul class="accord__content flex list-reset">
-                                    <ul class=" accord__content-list list-reset">
-                                        <li class="first-item">Бенедетто ди&nbsp;Биндо</li>
-                                        <li class="first-item">Бергоньоне, Амброджо</li>
-                                        <li class="first-item">Биссоло, Франческо</li>
-                                        <li class="first-item">Больтраффио, Джованни</li>
-                                        <li class="first-item">Бонсиньори, Франческо</li>
-                                        <li class="first-item">Боттичини, Рафаэлло</li>
-                                        <li class="first-item">Брамантино</li>
-                                        <li class="first-item">Бреа, Людовико</li>
-                                        <li class="first-item">Бьяджо д&rsquo;Антонио Туччи</li>
-                                    </ul>
-                                    <ul class="accord__content-list list-reset">
-                                        <li class="second-item">Веккьетта</li>
-                                        <li class="second-item">Андреа Верроккьо</li>
-                                        <li class="second-item">Доменико Гирландайо</li>
-                                        <li class="second-item">Беноццо Гоццоли</li>
-                                        <li class="second-item">Граначчи, Франческо</li>
-                                        <li class="second-item">Грегорио ди&nbsp;Чекко</li>
-                                        <li class="second-item">Джованни да&nbsp;Удине</li>
-                                        <li class="second-item">Джованни ди&nbsp;Паоло</li>
-                                        <li class="second-item">Джорджоне</li>
-                                    </ul>
-                                    <ul class="accord__content-list list-reset">
-                                        <li class="third-item">Парентино, Бернардо</li>
-                                        <li class="third-item">Пезеллино</li>
-                                        <li class="third-item">Пьетро Перуджино</li>
-                                        <li class="third-item">Перуцци, Бальдассаре</li>
-                                        <li class="third-item">Пизанелло</li>
-                                        <li class="third-item">Пинтуриккьо</li>
-                                    </ul>
-
+                                    <li>
+                                        <ul class=" accord__content-list list-reset">
+                                            <li class="first-item"> <a href="#">Бенедетто ди&nbsp;Биндо</a> </li>
+                                            <li class="first-item"> <a href="#">Бергоньоне, Амброджо</a> </li>
+                                            <li class="first-item"> <a href="#">Биссоло, Франческо</a> </li>
+                                            <li class="first-item"> <a href="#">Больтраффио, Джованни</a> </li>
+                                            <li class="first-item"> <a href="#">Бонсиньори, Франческо</a> </li>
+                                            <li class="first-item"> <a href="#">Боттичини, Рафаэлло</a> </li>
+                                            <li class="first-item"> <a href="#"> Брамантино</a></li>
+                                            <li class="first-item"> <a href="#">Бреа, Людовико</a> </li>
+                                            <li class="first-item"> <a href="#">Бьяджо д&rsquo;Антонио Туччи</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="accord__content-list list-reset">
+                                            <li class="second-item"> <a href="#">Веккьетта</a></li>
+                                            <li class="second-item"> <a href="#">Андреа Верроккьо</a> </li>
+                                            <li class="second-item"> <a href="#">Доменико Гирландайо</a> </li>
+                                            <li class="second-item"> <a href="#"> Беноццо Гоццоли</a></li>
+                                            <li class="second-item"> <a href="#">Граначчи, Франческо</a> </li>
+                                            <li class="second-item"> <a href="#">Грегорио ди&nbsp;Чекко</a> </li>
+                                            <li class="second-item"> <a href="#">Джованни да&nbsp;Удине</a></li>
+                                            <li class="second-item"> <a href="#">Джованни ди&nbsp;Паоло</a> </li>
+                                            <li class="second-item"> <a href="#">Джорджоне</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="accord__content-list list-reset">
+                                            <li class="third-item"> <a href="#">Парентино, Бернардо</a> </li>
+                                            <li class="third-item"> <a href="#">Пезеллино</a> </li>
+                                            <li class="third-item"> <a href="#">Пьетро Перуджино</a></li>
+                                            <li class="third-item"> <a href="#">Перуцци, Бальдассаре</a> </li>
+                                            <li class="third-item"> <a href="#">Пизанелло</a> </li>
+                                            <li class="third-item"> <a href="#">Пинтуриккьо</a> </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="accord-item">
@@ -374,18 +410,17 @@
                                         <h3 class="accord__block-content-title">Здесь пока пусто</h3>
                                         <p class="accord__block-content-descr">А&nbsp;в&nbsp;галерее вы&nbsp;всегда
                                             можете
-                                            найти что-то интересное для себя</p>
+                                            найти что-то интересное для себя
+                                        </p>
                                         <a href="#gallery" class="accord__block-content-link">В&nbsp;галерею</a>
                                     </div>
                                 </div>
-
                             </li>
                             <li class="accord-item">
                                 <div class="accord__item-inner">
                                     <h3 class="accord__title">C&nbsp;1600 по&nbsp;1699&nbsp;гг.</h3>
                                     <span class="accord__icon"></span>
                                 </div>
-
                                 <div class="accord__block flex">
                                     <div class="accord__block-img">
                                         <img src="img/accord-bl.png" alt="">
@@ -394,7 +429,8 @@
                                         <h3 class="accord__block-content-title">Здесь пока пусто</h3>
                                         <p class="accord__block-content-descr">А&nbsp;в&nbsp;галерее вы&nbsp;всегда
                                             можете
-                                            найти что-то интересное для себя</p>
+                                            найти что-то интересное для себя
+                                        </p>
                                         <a href="#gallery" class="accord__block-content-link">В&nbsp;галерею</a>
                                     </div>
                                 </div>
@@ -404,7 +440,6 @@
                                     <h3 class="accord__title">C&nbsp;1700 по&nbsp;1799&nbsp;гг.</h3>
                                     <span class="accord__icon"></span>
                                 </div>
-
                                 <div class="accord__block flex">
                                     <div class="accord__block-img">
                                         <img src="img/accord-bl.png" alt="">
@@ -413,7 +448,8 @@
                                         <h3 class="accord__block-content-title">Здесь пока пусто</h3>
                                         <p class="accord__block-content-descr">А&nbsp;в&nbsp;галерее вы&nbsp;всегда
                                             можете
-                                            найти что-то интересное для себя</p>
+                                            найти что-то интересное для себя
+                                        </p>
                                         <a href="#gallery" class="accord__block-content-link">В&nbsp;галерею</a>
                                     </div>
                                 </div>
@@ -423,7 +459,6 @@
                                     <h3 class="accord__title">C&nbsp;1800 по&nbsp;1899&nbsp;гг.</h3>
                                     <span class="accord__icon"></span>
                                 </div>
-
                                 <div class="accord__block flex">
                                     <div class="accord__block-img">
                                         <img src="img/accord-bl.png" alt="">
@@ -432,7 +467,8 @@
                                         <h3 class="accord__block-content-title">Здесь пока пусто</h3>
                                         <p class="accord__block-content-descr">А&nbsp;в&nbsp;галерее вы&nbsp;всегда
                                             можете
-                                            найти что-то интересное для себя</p>
+                                            найти что-то интересное для себя
+                                        </p>
                                         <a href="#gallery" class="accord__block-content-link">В&nbsp;галерею</a>
                                     </div>
                                 </div>
@@ -442,7 +478,6 @@
                                     <h3 class="accord__title">C&nbsp;1900 по&nbsp;1999&nbsp;гг.</h3>
                                     <span class="accord__icon"></span>
                                 </div>
-
                                 <div class="accord__block flex">
                                     <div class="accord__block-img">
                                         <img src="img/accord-bl.png" alt="">
@@ -451,7 +486,8 @@
                                         <h3 class="accord__block-content-title">Здесь пока пусто</h3>
                                         <p class="accord__block-content-descr">А&nbsp;в&nbsp;галерее вы&nbsp;всегда
                                             можете
-                                            найти что-то интересное для себя</p>
+                                            найти что-то интересное для себя
+                                        </p>
                                         <a href="#gallery" class="accord__block-content-link">В&nbsp;галерею</a>
                                     </div>
                                 </div>
@@ -461,7 +497,6 @@
                                     <h3 class="accord__title">C&nbsp;2000&nbsp;г.</h3>
                                     <span class="accord__icon"></span>
                                 </div>
-
                                 <div class="accord__block flex">
                                     <div class="accord__block-img">
                                         <img src="img/accord-bl.png" alt="">
@@ -470,15 +505,14 @@
                                         <h3 class="accord__block-content-title">Здесь пока пусто</h3>
                                         <p class="accord__block-content-descr">А&nbsp;в&nbsp;галерее вы&nbsp;всегда
                                             можете
-                                            найти что-то интересное для себя</p>
+                                            найти что-то интересное для себя
+                                        </p>
                                         <a href="#gallery" class="accord__block-content-link">В&nbsp;галерею</a>
                                     </div>
                                 </div>
                             </li>
                         </ul>
-
                     </div>
-
                 </div>
             </div>
         </section>
@@ -488,8 +522,7 @@
                 <h2 class="doing__title section-title">
                     События
                 </h2>
-
-                <div class="doing__swiper swiper MySwiper" >
+                <div class="doing__swiper swiper MySwiper">
                     <div class="doing__swiper-wrapper swiper-wrapper flex">
                         <div class="doing__swiper-slide swiper-slide">
                             <div class="doing__slide-img"><img src="img/do-slide1.jpg" alt=""></div>
@@ -499,7 +532,8 @@
                                 <h3 class="doing__slide-block-title">Книжная гравюра в&nbsp;живом восприятии</h3>
                                 <p class="doing__slide-block-descr">Один из&nbsp;ведущих флорентийских художников
                                     Кватроченто, основатель художественной династии, которую продолжили его брат Давид
-                                    и&nbsp;сын Ридольфо.</p>
+                                    и&nbsp;сын Ридольфо.
+                                </p>
                                 <a href="" class="doing__slide-block-link">Подробнее</a>
                             </div>
                         </div>
@@ -509,9 +543,11 @@
                                 <span class="doing__slide-block-span">ММОМА
                                     24&nbsp;марта 19:00</span>
                                 <h3 class="doing__slide-block-title">&laquo;Открытая дискуссия&raquo;. Дмитрий Петров
-                                    и&nbsp;Сергей Ильин.</h3>
+                                    и&nbsp;Сергей Ильин.
+                                </h3>
                                 <p class="doing__slide-block-descr">Высокий уровень вовлечения представителей целевой
-                                    аудитории является четким доказательством простого факта.</p>
+                                    аудитории является четким доказательством простого факта.
+                                </p>
                                 <a href="" class="doing__slide-block-link">Подробнее</a>
                             </div>
                         </div>
@@ -523,7 +559,8 @@
                                 <h3 class="doing__slide-block-title">Выставка &laquo;Формация 2020&raquo;</h3>
                                 <p class="doing__slide-block-descr">Идейные соображения высшего порядка, а&nbsp;также
                                     современная методология разработки играет важную роль в&nbsp;формировании
-                                    глубокомысленных рассуждений.</p>
+                                    глубокомысленных рассуждений.
+                                </p>
                                 <a href="" class="doing__slide-block-link">Подробнее</a>
                             </div>
                         </div>
@@ -533,10 +570,12 @@
                                 <span class="doing__slide-block-span">ММАМ
                                     с&nbsp;8&nbsp;апреля по&nbsp;20&nbsp;мая</span>
                                 <h3 class="doing__slide-block-title">Джон Винзор. Фотографии из&nbsp;серии
-                                    &laquo;Метафора серебра&raquo;</h3>
+                                    &laquo;Метафора серебра&raquo;
+                                </h3>
                                 <p class="doing__slide-block-descr">Один из&nbsp;ведущих флорентийских художников
                                     Кватроченто, основатель художественной династии, которую продолжили его брат Давид
-                                    и&nbsp;сын Ридольфо.</p>
+                                    и&nbsp;сын Ридольфо.
+                                </p>
                                 <a href="" class="doing__slide-block-link">Подробнее</a>
                             </div>
                         </div>
@@ -547,12 +586,20 @@
                                     с&nbsp;30&nbsp;марта по&nbsp;30&nbsp;апреля</span>
                                 <h3 class="doing__slide-block-title">XXIV Международная биеннале молодого искусства</h3>
                                 <p class="doing__slide-block-descr">Внезапно, реплицированные с&nbsp;зарубежных
-                                    источников, современные исследования.</p>
+                                    источников, современные исследования.
+                                </p>
                                 <a href="" class="doing__slide-block-link">Подробнее</a>
                             </div>
                         </div>
-
                     </div>
+
+                </div>
+
+                <div class="doing__pagination flex">
+
+                    <div class="pagination"></div>
+                    <button class=" doing-nav-btn doing-next" aria-label="К следующему слайду"></button>
+
                 </div>
             </div>
         </section>
@@ -570,86 +617,89 @@
                     и&nbsp;финансовых предпосылок. Банальные, но&nbsp;неопровержимые выводы, а&nbsp;также представители
                     современных социальных резервов призывают нас к&nbsp;новым свершениям, которые, в&nbsp;свою очередь,
                     должны быть смешаны с&nbsp;не&nbsp;уникальными данными до&nbsp;степени совершенной неузнаваемости.
-                    Подробнее: <a href="#">blanchard-art.ru/projects</a></p>
-                <div class="project__swiper projectMySwiper">
-                    <h3 class="project__swiper-title">Партнёры проектов:</h3>
-                    <div class="project__swiper-wrapper flex">
-                        <div class="project__swiper-slide">
-                            <div class="project__slide-img"><img src="img/project-slide1.svg" alt=""></div>
+                    Подробнее: <a class="project-descr-link" href="#">blanchard-art.ru/projects</a>
+                </p>
+                <h3 class="project__swiper-title">Партнёры проектов:</h3>
+                <div class="project__swiper swiper">
+
+                    <div class="project__swiper-wrapper swiper-wrapper flex">
+                        <div class="project__swiper-slide swiper-slide">
+                            <div class="project__slide-img"><img src="img/pr1.svg" alt=""></div>
                         </div>
-                        <div class="project__swiper-slide">
-                            <div class="project__slide-img"><img src="img/project-slide2.svg" alt=""></div>
+                        <div class="project__swiper-slide swiper-slide">
+                            <div class="project__slide-img"><img src="img/pr2.svg" alt=""></div>
                         </div>
-                        <div class="project__swiper-slide">
-                            <div class="project__slide-img"><img src="img/project-slide3.svg" alt=""></div>
+                        <div class="project__swiper-slide swiper-slide">
+                            <div class="project__slide-img"><img src="img/pr3.svg" alt=""></div>
                         </div>
-                        <div class="project__swiper-slide">
-                            <div class="project__slide-img"><img src="img/project-slide4.svg" alt=""></div>
+                        <div class="project__swiper-slide swiper-slide">
+                            <div class="project__slide-img"><img src="img/pr4.svg" alt=""></div>
                         </div>
-                        <div class="project__swiper-slide">
-                            <div class="project__slide-img"><img src="img/project-slide5.svg" alt=""></div>
+                        <div class="project__swiper-slide swiper-slide">
+                            <div class="project__slide-img"><img src="img/pr5.svg" alt=""></div>
                         </div>
-                        <div class="project__swiper-slide">
-                            <div class="project__slide-img"><img src="img/project-slide6.svg" alt=""></div>
+                        <div class="project__swiper-slide swiper-slide">
+                            <div class="project__slide-img"><img src="img/pr6.svg" alt=""></div>
                         </div>
-                        <div class="project__swiper-slide">
-                            <div class="project__slide-img"><img src="img/project-slide7.svg" alt=""></div>
+                        <div class="project__swiper-slide swiper-slide">
+                            <div class="project__slide-img"><img src="img/pr7.svg" alt=""></div>
                         </div>
-                        <div class="project__swiper-slide">
-                            <div class="project__slide-img"><img src="img/project-slide8.svg" alt=""></div>
+                        <div class="project__swiper-slide swiper-slide">
+                            <div class="project__slide-img"><img src="img/pr8.svg" alt=""></div>
                         </div>
-                        <div class="project__swiper-slide">
-                            <div class="project__slide-img"><img src="img/project-slide9.svg" alt=""></div>
+                        <div class="project__swiper-slide swiper-slide">
+                            <div class="project__slide-img"><img src="img/pr9.svg" alt=""></div>
                         </div>
                     </div>
+                </div>
+                <div class="project__pagination flex">
+                    <button class="project-nav-btn project-prev" aria-label="К предыдущему слайду"></button>
+                    <div class="pagination"></div>
+                    <button class="project-nav-btn project-next" aria-label="К следующему слайду"></button>
+
                 </div>
             </div>
         </section>
         <!-- Contact -->
         <section id="contact" class="section contact">
-            <div class="contact__container container">
+            <div class="contact__container container flex">
                 <div class="contact__adress">
                     <h3 class="contact__adress-name">Шоурум &#8470;&nbsp;4</h3>
                     <p class="contact__adress-descr">Леонтьевский переулок, дом 5/1</p>
                 </div>
-            </div>
 
-            <form class="form" action="#" autocomplete="off" id="form">
-                <div class="form__fields">
-                    <input class="input__form" name="name" type="text" placeholder="Имя*" data-validate-field="name"
-                        data-msg="Введите имя" autocomplete="off" id="name">
-
+                <form class="form flex" action="#" autocomplete="off" id="form">
+                    <div class="form__fields">
+                        <input class="input__form " name="name" type="text" placeholder="Имя*"
+                            data-validate-field="name" data-msg="Введите имя" autocomplete="off" id="name">
+                    </div>
+                    <div class="form__fields">
+                        <input class="input__form" name="phone" type="tel" placeholder="Телефон*"
+                            data-validate-field="phone" data-msg="Введите телефон" autocomplete="off" id="phone">
+                    </div>
+                    <button class="form__btn btn ">
+                        Заказать обратный звонок
+                    </button>
+                </form>
+                <div class="contact__msg">
+                    <h3 class="contact__msg-title">Связаться в&nbsp;один клик</h3>
+                    <ul class="contact__list list-reset  flex">
+                        <li class="contact__list-item">
+                            <a href="" class="contact__list-link contact-up">
+                                <img src="img/Whatsapp-Icon.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="contact__list-item">
+                            <a href="" class="contact__list-link contact-tg">
+                                <img src="img/telegram.svg" alt="">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="form__fields">
-                    <input class="input__form" name="phone" type="tel" placeholder="Телефон*"
-                        data-validate-field="phone" data-msg="Введите телефон" autocomplete="off" id="phone">
-
-                </div>
-                <button class="form__btn btn">
-                    Заказать обратный звонок
-                </button>
-
-            </form>
-
-            <div class="contact__msg">
-                <h3 class="contact__msg-title">Связаться в&nbsp;один клик</h3>
-                <ul class="contact__list list-reset">
-                    <li class="contact__list-item">
-                        <a href="" class="contact__list-link contact-up">
-
-                        </a>
-                    </li>
-                    <li class="contact__list-item">
-                        <a href="" class="contact__list-link contact-tg">
-
-                        </a>
-                    </li>
-                </ul>
             </div>
         </section>
         <!-- Map -->
-        <div class="map"></div>
-
+        <div class="map" id="myMap1"></div>
     </main>
     <!-- Footer -->
     <footer class="footer">
@@ -657,21 +707,20 @@
             <a href="#" class="footer__logo">
                 <img src="img/footer-logo.svg" alt="logo">
             </a>
-
-            <ul class="footer__soc-list list-reset">
+            <ul class="footer__soc-list list-reset flex">
                 <li class="footer__soc-item">
                     <a href="" class="footer__soc-link soc-vk">
-
+                        <img src="img/vk.svg" alt="">
                     </a>
                 </li>
                 <li class="footer__soc-item">
                     <a href="" class="footer__soc-link soc-inst">
-
+                        <img src="img/inst.svg" alt="">
                     </a>
                 </li>
                 <li class="footer__soc-item">
                     <a href="" class="footer__soc-link soc-fb">
-
+                        <img src="img/fb.svg" alt="">
                     </a>
                 </li>
             </ul>
@@ -679,10 +728,6 @@
     </footer>
     <script src="JS/choices.min.js"></script>
     <script src="JS/index.js"></script>
-
-
-
-
 </body>
 
 </html>
