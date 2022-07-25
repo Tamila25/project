@@ -79,18 +79,31 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   setMenuListener();
+  // Burger
+  document.querySelector('#burger').addEventListener('click',
+    function () {
+    document.querySelector('#menu').classList.toggle('active')
+    })
+  document.querySelector('#close-menu').addEventListener('click',
+    function () {
+    document.querySelector('#menu').classList.toggle('active')
+  })
+
+  document.querySelector('#search').addEventListener('click', function () {
+    document.querySelector('#search-form').classList.toggle('is-active')
+  })
+  document.querySelector('#close').addEventListener('click', function () {
+    document.querySelector('#search-form').classList.toggle('is-active')
+  })
 
   // Swiper hero
   const swiper1 = new Swiper('.hero__swiper', {
-
-
     loop: true,
     allowTouchMove: false,
-
     effect: 'fade',
     speed: 10000,
     autoplay: {
-      delay: 10000
+      delay: 1000
     }
   })
 
@@ -104,32 +117,49 @@ document.addEventListener("DOMContentLoaded", function () {
   const slider = new Swiper('.gallery__swiper', {
     slidesPerGroup: 3,
     slidesPerView: 3,
-    spaceBetween: 20,
+    spaceBetween: 15,
     loop: true,
 
- 
+  
    
     navigation: {
       nextEl: ".next",
       prevEl: ".prev"
     },
-    // pagination: {
-    //   el: ".gallery__pagination",
-    //   type: "fraction",
-    // },
+   
     
 
     breakpoints: {
-      441: {
-        slidesPerView: 2,
-        spaceBetween: 30
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        slidesPerGroup: 1,
       },
-
-      1680: {
+      530: {
+        slidesPerView: 1,
+        spaceBetween: 15,
+        slidesPerGroup: 1,
+      },
+      691: {
+        slidesPerView: 2,
+        spaceBetween: 34,
+        slidesPerGroup: 2,
+      },
+      1440: {
         slidesPerView: 3,
-        spaceBetween: 50
+        spaceBetween: 50,
+        slidesPerGroup: 3,
+      },
+      1600: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+        slidesPerGroup: 3,
       }
     },
+    pagination: {
+      el: '.gallery__swiper-pagination',
+      type: 'fraction',
+    }
 
   });
 
@@ -139,10 +169,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Accord
   $(function () {
     $("#accordion").accordion({
-      icons: false,
+     
       heightStyle: "content",
-      collapsible: true,
-      active: false
+      active: 0
     });
   })
   // swiper doing
@@ -156,6 +185,53 @@ document.addEventListener("DOMContentLoaded", function () {
       nextEl: ".doing-next",
 
     },
+    pagination: {
+      el: '.doing__swiper-pagination',
+      clickable: true,
+    },
+
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        slidesPerGroup: 1,
+      },
+      426: {
+        slidesPerView: 1,
+        spaceBetween: 70,
+        slidesPerGroup: 1,
+      },
+      596: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+        slidesPerGroup: 2,
+      },
+      691: {
+        slidesPerView: 2,
+        spaceBetween: 34,
+        slidesPerGroup: 2,
+      },
+      820: {
+        slidesPerView: 2,
+        spaceBetween: 60,
+        slidesPerGroup: 2,
+      },
+      952: {
+        slidesPerView: 3,
+        spaceBetween: 16,
+        slidesPerGroup: 3,
+      },
+      1440: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+        slidesPerGroup: 3,
+      },
+      1600: {
+        slidesPerView: 3,
+        spaceBetween: 60,
+        slidesPerGroup: 3,
+      }
+    },
 
 
   });
@@ -167,6 +243,34 @@ document.addEventListener("DOMContentLoaded", function () {
     navigation: {
       nextEl: ".project-next",
       prevEl: ".project-prev"
+    },
+
+    breakpoints: {
+      500: {
+        slidesPerView: 1,
+        spaceBetween: 15,
+        slidesPerGroup: 1,
+      },
+      691: {
+        slidesPerView: 2,
+        spaceBetween: 34,
+        slidesPerGroup: 2,
+      },
+      820: {
+        slidesPerView: 2,
+        spaceBetween: 38,
+        slidesPerGroup: 2,
+      },
+      1440: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+      },
+      1600: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+        slidesPerGroup: 3,
+      }
     },
 
 
@@ -207,5 +311,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   }
 
+ 
 
 });
